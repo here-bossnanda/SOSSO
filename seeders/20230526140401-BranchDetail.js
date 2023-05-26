@@ -1,0 +1,106 @@
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkInsert("BranchDetails", [
+      {
+	      branch_id: "h609",
+        check_list: "HO",
+        category_id: "1",
+        area: "Faktur Service Manual",
+        point_check: "Fisik Faktur Service Manual",
+        no_prio: "1",
+        list: "Faktur Service Manual yang hilang tanpa surat kehilangan kepolisian (Ada surat kepolisian saat faktur service hilang)",
+        actual: "20",
+        score: "20",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+	      branch_id: "h609",
+        check_list: "HO",
+        category_id: "2",
+        area: "Faktur Service Manual",
+        point_check: '"Fisik Form SA(Status : Free, Alocated, Damaged, Lost)"',
+        no_prio: "4",
+        list: "Fisik Form SA hilang tanpa lampiran",
+        actual: "5",
+        score: "5",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+	      branch_id: "h609",
+        check_list: "HO",
+        category_id: "3",
+        area: "Faktur Service Manual",
+        point_check: "Fisik Faktur Service Manual",
+        no_prio: "1",
+        list: "Faktur Service Manual yang hilang tanpa surat kehilangan kepolisian (Ada surat kepolisian saat faktur service hilang)",
+        actual: "5",
+        score: "0",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+	      branch_id: "h609",
+        check_list: "HO",
+        category_id: "4",
+        area: "Faktur Service Manual",
+        point_check: "Fisik Faktur Service Manual",
+        no_prio: "1",
+        list: "Faktur Service Manual yang hilang tanpa surat kehilangan kepolisian (Ada surat kepolisian saat faktur service hilang)",
+        actual: "15",
+        score: "10",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ]);
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete("BranchDetails", [
+      {
+        check_list: "HO",
+        category_id: "1",
+        area: "Faktur Service Manual",
+        point_check: "Fisik Faktur Service Manual",
+        no_prio: "1",
+        list: "Faktur Service Manual yang hilang tanpa surat kehilangan kepolisian (Ada surat kepolisian saat faktur service hilang)",
+        actual: "20",
+        score: "20",
+      },
+      {
+        check_list: "HO",
+        category_id: "2",
+        area: "Faktur Service Manual",
+        point_check: '"Fisik Form SA(Status : Free, Alocated, Damaged, Lost)"',
+        no_prio: "4",
+        list: "Fisik Form SA hilang tanpa lampiran",
+        actual: "5",
+        score: "5",
+      },
+      {
+        check_list: "HO",
+        category_id: "3",
+        area: "Faktur Service Manual",
+        point_check: "Fisik Faktur Service Manual",
+        no_prio: "1",
+        list: "Faktur Service Manual yang hilang tanpa surat kehilangan kepolisian (Ada surat kepolisian saat faktur service hilang)",
+        actual: "5",
+        score: "0",
+      },
+      {
+        check_list: "HO",
+        category_id: "4",
+        area: "Faktur Service Manual",
+        point_check: "Fisik Faktur Service Manual",
+        no_prio: "1",
+        list: "Faktur Service Manual yang hilang tanpa surat kehilangan kepolisian (Ada surat kepolisian saat faktur service hilang)",
+        actual: "15",
+        score: "10",
+      },
+    ]);
+  },
+};

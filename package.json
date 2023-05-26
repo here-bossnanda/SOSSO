@@ -1,0 +1,42 @@
+{
+  "name": "sosso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db:create": "npx sequelize db:create",
+    "db:migrate": "npx sequelize db:migrate",
+    "db:migrate:undo": "npx sequelize db:migrate:undo:all",
+    "db:seed": "npx sequelize db:seed:all",
+    "db:create:development": "SET NODE_ENV=development&npm run db:create",
+    "db:migrate:development": "SET NODE_ENV=development&npm run db:migrate",
+    "db:migrate:undo:development": "SET NODE_ENV=development&npm run db:migrate:undo",
+    "db:seed:development": "SET NODE_ENV=development&npm run db:seed",
+    "db:create:test": "SET NODE_ENV=test&npm run db:create",
+    "db:migrate:test": "SET NODE_ENV=test&npm run db:migrate",
+    "db:migrate:undo:test": "SET NODE_ENV=test&npm run db:migrate:undo",
+    "db:seed:test": "SET NODE_ENV=test&npm run db:seed",
+    "start": "node ./bin/http.js",
+    "dev": "SET NODE_ENV=development&nodemon ./bin/http.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chart.js": "^4.3.0",
+    "cloudinary": "^1.37.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.11.0",
+    "sequelize": "^6.31.1",
+    "vue-chartkick": "^1.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.22",
+    "sequelize-cli": "^6.6.0"
+  }
+}
