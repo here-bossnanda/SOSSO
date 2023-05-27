@@ -16,27 +16,28 @@ const dialect = process.env['DB_DIALECT_' + upperCaseEnv
 
 
 module.exports = {
-    development: {
-        username,
-        password,
-        database,
-        host,
-        dialect,
+  development: {
+    username,
+    password,
+    database,
+    host,
+    dialect,
   },
-    test: {
-        username,
-        password,
-        database,
-        host,
-        dialect,
+  test: {
+    username,
+    password,
+    database,
+    host,
+    dialect,
   },
-    production: {
-        use_env_variable: "DATABASE_URL",
-        dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false
-      }
-    }
-  }
-}
+  production: {
+    use_env_variable: "DATABASE_URL",
+    dialectOptions: {
+      dialect: "postgres",
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
+  },
+};
