@@ -19,4 +19,10 @@ router.patch(
   branchDetailMonthlyController.updateEvidance
 );
 
+router.patch(
+  "/detail/status/:branch_detail_monthly_id",
+  isLoginAdmin,
+  branchDetailMonthlyController.updateStatus
+);
+
 module.exports = router
