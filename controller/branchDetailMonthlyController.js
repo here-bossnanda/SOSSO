@@ -75,7 +75,7 @@ class BranchDetailController {
       const id = +req.params.branch_detail_monthly_id;
       const { status } = req.body;
       let input = {};
-        input["status"] = +status;
+      input["status"] = +status;
 
       const data = await BranchDetailMonthly.findByPk(id, {
         attributes: { exclude: ["createdAt", "updatedAt"] },
