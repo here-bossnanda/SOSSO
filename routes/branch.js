@@ -13,7 +13,11 @@ router.get(
   branchDetailMonthlyController.getAll
 );
 
-router.get("/dashboard/chart-bar", branchDetailController.getBarChartDashbord);
+router.get(
+  "/dashboard/chart-bar",
+  isLoginAdmin,
+  branchDetailController.getBarChartDashbord
+);
 
 router.patch(
   "/detail/:branch_detail_monthly_id",
