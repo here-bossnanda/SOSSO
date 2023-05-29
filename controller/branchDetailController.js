@@ -265,6 +265,24 @@ class BranchDetailController {
       if (getTotalChart.length > 0) {
         generatedResultChartObj =
           await BranchDetailController._generatedResultChart(getTotalChart);
+      } else {
+        generatedResultChartObj["labels"] = [
+          "Final Score",
+          "Final Score Finish Bengkel",
+          "Final Score Finish Finance",
+          "Final Score Finish Others",
+          "Final Score Finish Unit",
+        ];
+
+        generatedResultChartObj["data"] = [0, 0, 0, 0, 0];
+
+        generatedResultChartObj["color"] = [
+          "#f20f16",
+          "#f20f16",
+          "#f20f16",
+          "#f20f16",
+          "#f20f16",
+        ];
       }
 
       generatedResultChartObj["title"] =
