@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Branch extends Model {
     /**
@@ -13,21 +11,23 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Branch.hasMany(models.BranchDetail, {
         as: "branchDetail",
-        foreignKey: "branch_id"
+        foreignKey: "branch_id",
       });
     }
   }
   Branch.init(
     {
-    branch_code: {
-      type:DataTypes.STRING,
+      branch_code: {
+        type: DataTypes.STRING,
+      },
+      branch_name: {
+        type: DataTypes.STRING,
+      },
     },
-    branch_name: {
-      type:DataTypes.STRING,
+    {
+      sequelize,
+      modelName: "Branch",
     }
-  }, {
-    sequelize,
-    modelName: 'Branch',
-  });
+  );
   return Branch;
 };

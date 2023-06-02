@@ -6,6 +6,7 @@ const branchDetailMonthlyController = require("../controller/branchDetailMonthly
 const isLoginAdmin = require("../middlewares/isLoginAdmin");
 
 router.get("/", isLoginAdmin, branchController.getAll);
+router.post("/bulk", isLoginAdmin, branchController.bulkCreate);
 router.get("/:branch_code", isLoginAdmin, branchDetailController.getAll);
 router.get(
   "/detail/:branch_detail_id",
@@ -17,6 +18,18 @@ router.get(
   "/dashboard/chart-bar",
   isLoginAdmin,
   branchDetailController.getBarChartDashbord
+);
+
+router.get(
+  "/dashboard/chart-pie",
+  isLoginAdmin,
+  branchDetailController.getPieChart
+);
+
+router.get(
+  "/dashboard/detail",
+  isLoginAdmin,
+  branchDetailController.getTableData
 );
 
 router.patch(

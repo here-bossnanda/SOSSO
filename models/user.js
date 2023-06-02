@@ -1,7 +1,6 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
+const { hashPassword } = require("../helpers/hashPassword");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -15,43 +14,49 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init(
     {
-        email: {
-            type: DataTypes.STRING,
-            validate: {
-                notEmpty: {
-                    msg: "field email is required",
-                },
-                isEmail: {
-                    msg: "invalid email",
-                },
-            },
-            unique: true,
+      email: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            msg: "field email is required",
+          },
+          isEmail: {
+            msg: "invalid email",
+          },
         },
-        password: {
-            type: DataTypes.STRING,
-            validate: {
-                notEmpty: {
-                    msg: "field password is required",
-                },
-                len: {
-                    args: 6,
-                    msg: "password at least have 6 character",
-                },
-            },
+        unique: true,
+      },
+      password: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            msg: "field password is required",
+          },
+          len: {
+            args: 6,
+            msg: "password at least have 6 character",
+          },
         },
-        role: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue: 0,
-        },
-  }, {
-    sequelize,
-    modelName: 'User',
-    hooks: {
-        beforeCreate(instance) {
-            instance.password = hashPassword(instance.password);
-        },
+      },
+      role: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 2,
+      },
+      branches: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
-  });
+    {
+      sequelize,
+      modelName: "User",
+      hooks: {
+        beforeCreate(instance) {
+          instance.password = hashPassword(instance.password);
+        },
+      },
+    }
+  );
   return User;
 };
